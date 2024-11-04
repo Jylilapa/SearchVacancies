@@ -4,6 +4,6 @@ class ApiVacancies(ABC):
 
     @classmethod
     @abstractmethod
-    def file_worker(cls, *args, **kwargs):
+    def load_vacancies(cls, keyword):
         pass
 
