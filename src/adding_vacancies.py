@@ -7,5 +7,5 @@ class AddingVacancies(ABC):
         pass
 
     @abstractmethod
-    def del_vacancy(self):
+    def del_vacancy(self, del_json):
         pass
