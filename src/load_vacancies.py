@@ -4,6 +4,7 @@ from src.api_vacancies import ApiVacancies
 
 
 class HeadHunter(ApiVacancies):
+    """Класс получения вакансий с сайта HeadHunter"""
 
     def __init__(self):
         self.url = "https://api.hh.ru/vacancies"
@@ -12,6 +13,7 @@ class HeadHunter(ApiVacancies):
         self.vacancies = []
 
     def load_vacancies(self, keyword):
+        """Метод получения вакансий"""
         self.params["text"] = keyword
         while self.params.get("page") != 20:
             response = requests.get(self.url, headers=self.headers, params=self.params)

@@ -3,6 +3,7 @@ from src.load_vacancies import HeadHunter
 
 
 class Vacancy(HeadHunter):
+    """Класс работы с вакансиями"""
     __slots__ = (
         "name",
         "city",
@@ -37,6 +38,7 @@ class Vacancy(HeadHunter):
         self.__filter_vacancy(self.data_hh)
 
     def __filter_vacancy(self, data_hh):
+        """Фильтрация вакансий"""
         for i in data_hh:
             if i["salary"] is not None:
                 self.result.append(
@@ -77,6 +79,7 @@ class Vacancy(HeadHunter):
                 return self.result
 
     def filter_city(self):
+        """Метод фильтрации вакансий по городу"""
         result_city = []
         for i in self.result:
             if self.city == i["city"]:
@@ -84,6 +87,7 @@ class Vacancy(HeadHunter):
         return result_city
 
     def __le__(self, other, my_list):
+        """Метод сравнения зарплаты"""
         res_salary = []
         for i in my_list:
             if other <= i["salary"]["from"]:
@@ -92,6 +96,7 @@ class Vacancy(HeadHunter):
 
 
 def top_vacancy(number, my_list):
+    """Функция топ-вакансий"""
     if number == "":
         return my_list
     else:
@@ -99,6 +104,7 @@ def top_vacancy(number, my_list):
 
 
 def filter_vacancy(my_list, words_list):
+    """Функция фильтрации вакансий по имени"""
     fin_list = []
     for index in my_list:
         for i in words_list:

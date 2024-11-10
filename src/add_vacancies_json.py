@@ -5,6 +5,7 @@ from src.vacancy import Vacancy
 
 
 class AddVacanciesJSON(AddingVacancies, Vacancy):
+    """Класс сохранения, удаления и выборки вакансий"""
 
     def __init__(
         self,
@@ -23,6 +24,7 @@ class AddVacanciesJSON(AddingVacancies, Vacancy):
         return self.__name_list
 
     def save_vacancy(self, vacancy_list):
+        """Метод сохранения вакансий"""
         if os.path.exists(self.get_name_list()):
             with open(self.get_name_list(), "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -36,6 +38,7 @@ class AddVacanciesJSON(AddingVacancies, Vacancy):
                 json.dump(vacancy_list, file, indent=4, ensure_ascii=False)
 
     def get_data(self, keyword):
+        """Метод выборки вакансий"""
         with open(self.get_name_list(), "r", encoding="utf-8") as file:
             data_json_file = json.load(file)
             for vacancy in data_json_file:
@@ -52,6 +55,7 @@ class AddVacanciesJSON(AddingVacancies, Vacancy):
                     continue
 
     def del_vacancy(self, del_json):
+        """Метод удаления вакансий"""
         data_del = []
         with open(self.get_name_list(), "r", encoding="utf-8") as file:
             data = json.load(file)
