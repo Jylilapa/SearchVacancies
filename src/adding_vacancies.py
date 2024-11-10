@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class AddingVacancies(ABC):
 
     @abstractmethod
@@ -8,4 +9,8 @@ class AddingVacancies(ABC):
 
     @abstractmethod
     def del_vacancy(self, del_json):
+        pass
+
+    @abstractmethod
+    def get_data(self, keyword):
         pass
